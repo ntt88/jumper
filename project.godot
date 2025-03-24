@@ -1,0 +1,59 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Admob",
+"language": "GDScript",
+"path": "res://admob-lib/admob.gd"
+} ]
+_global_script_class_icons={
+"Admob": "res://admob-lib/icon.png"
+}
+
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
+[application]
+
+config/name="circle_jump"
+run/main_scene="res://Main.tscn"
+config/icon="res://cj_icon_64.png"
+config/quit_on_go_back=false
+
+[autoload]
+
+settings="*res://settings.gd"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+
+[display]
+
+window/size/width=480
+window/size/height=854
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+vram_compression/import_etc=true
+environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false
