@@ -9,6 +9,7 @@ var velocity = Vector2(100, 0)
 var jump_speed = 1500
 var target = null
 var trail_length = 25
+var delta_pos = Vector2(0, 0)
 
 func _ready():
 	$Sprite.material.set_shader_param("color", settings.theme["player_body"])
@@ -36,6 +37,8 @@ func _on_Jumper_area_entered(area):
 		$Capture.play()
 	
 func _physics_process(delta):
+	delta_pos = $Sprite.get_parent().get_local_mouse_position()
+	print(delta_pos)
 	if trail.points.size() > trail_length:
 		trail.remove_point(0)
 	trail.add_point(position)
@@ -44,6 +47,7 @@ func _physics_process(delta):
 		transform = target.orbit_position.global_transform
 	else:
 		position += velocity * delta
+
 		
 func die():
 	target = null
